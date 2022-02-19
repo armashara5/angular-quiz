@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light rounded">
+  <div class="container">
+    <div class="navbar-collapse justify-content-sm-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active">Search Users</a>
+        </li>
+        <form>
+          <input class="form-control" type="text" name="searchTerm" placeholder="Filter by Id" [(ngModel)]="searchTerm"
+            (input)="search($event)" />
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row col-sm-12 align-items-center justify-content-center">
+  <mat-list>
+    <a>
+      <app-user-card *ngFor="let user of users | searchFilter: searchTerm " [userElement]="user"
+        [routerLink]="['/users',user.id]"></app-user-card>
+    </a>
+  </mat-list>
+
+  <mat-paginator [pageSizeOptions]="[5,10,25]" (page)="OnPageChange($event)" length="{{allUsers.length}}">
+
+  </mat-paginator>
+</div>

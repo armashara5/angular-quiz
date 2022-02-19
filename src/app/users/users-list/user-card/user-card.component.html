@@ -1,0 +1,21 @@
+<!-- <div class="col-sm-12 align-items-center">
+  <div class="card" [routerLink]="['/user',user.userId]">
+    <div class="row ">
+      <div class="col-sm-6 align-items-center" >
+      <img src="{{user.avatar}}" class="img-responsive" alt="{{user.userId}} image">
+      </div>
+      <div class="col-sm-6">
+      <div class="card-body">
+        <h5 class="card-body">{{user.firstName}} {{user.lastName}}</h5>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<mat-list-item>
+  <mat-icon matListIcon>
+    <img matListAvatar src="{{user.avatar}}" alt="{{user.id}}">
+  </mat-icon>
+  <h3 matLine>{{user.first_name}} {{user.last_name}}</h3>
+  <p matLine> {{user.email}} </p>
+</mat-list-item>
+<mat-divider></mat-divider>
